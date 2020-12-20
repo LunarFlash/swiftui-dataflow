@@ -17,11 +17,7 @@ struct AddMovie: View {
           TextField("Title", text: $title)
         }
         Section(header: Text("Genre")) {
-          Picker(selection: $genre, label: Spacer()) {
-            ForEach(Movie.possibleGenres, id: \.self) {
-              Text($0)
-            }
-          }.pickerStyle(WheelPickerStyle())
+          GenrePicker(genre: $genre)
         }
         Section(header: Text("Rating")) {
           Slider(value: $rating, in: 0...5, step: 0.5)
