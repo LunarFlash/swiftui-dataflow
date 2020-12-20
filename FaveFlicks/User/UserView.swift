@@ -3,6 +3,7 @@ import SwiftUI
 struct UserView: View {
   
   @State private var username = ""
+  @State private var favoriteGenre = ""
   
   var body: some View {
     NavigationView{
@@ -10,6 +11,9 @@ struct UserView: View {
         Section(header: Text("User Name")) {
           // Passes userName as a binding to a TextField.
           TextField("User Name", text: $username)
+        }
+        Section(header: Text("Favorite Genre")) {
+          GenrePicker(genre: $favoriteGenre)
         }
       }
     }
