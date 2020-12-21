@@ -9,6 +9,7 @@ struct AddMovie: View {
   @State private var title = ""
   @State private var genre = ""
   @State private var rating: Double = 0
+  @EnvironmentObject var userStore: UserStore
 
   var body: some View {
     NavigationView {
@@ -32,6 +33,7 @@ struct AddMovie: View {
           }
       )
     }
+    .onAppear { genre = userStore.currentUserInfo?.favoriteGenre ?? "" }
   }
 
   private func addMovie() {
