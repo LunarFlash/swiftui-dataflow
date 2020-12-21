@@ -11,6 +11,8 @@ struct MovieList: View {
   
   @StateObject var movieStore = MovieStore()
   @State private var isPresented = false
+  // lets you use environment objects passed to a view or to any of its ancestor views.
+  @EnvironmentObject var userStore: UserStore
 
   var body: some View {
     NavigationView {
