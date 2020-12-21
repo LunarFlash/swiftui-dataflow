@@ -29,7 +29,10 @@ struct MovieList: View {
       .navigationBarItems(
         leading:
           NavigationLink(destination: UserView()) {
-            Image(systemName: "person.fill")
+            HStack {
+              userStore.currentUserInfo.map { Text($0.username) }
+              Image(systemName: "person.fill")
+            }
           },
         trailing:
           Button(action: { isPresented.toggle() }) {
